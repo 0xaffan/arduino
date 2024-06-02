@@ -1,0 +1,50 @@
+int buzzer=(pin,8);
+
+int chintu_echo = 12;
+int chintu_trig = 13;
+float distance, duration;
+
+
+
+void setup(){
+pinMode(chintu_echo, INPUT);
+  pinMode(chintu_trig, OUTPUT);
+
+Serial.begin(9600);
+
+
+
+}
+}
+
+/*
+  Returns the distance sound travels in decimal.
+  Value is generally between 1 to 1100.
+*/
+float chintu_radar(){
+  digitalWrite(chintu_trig, LOW);  
+	delayMicroseconds(2);  
+	digitalWrite(chintu_trig, HIGH);  
+	delayMicroseconds(10);  
+	digitalWrite(chintu_trig, LOW); 
+
+  duration = pulseIn(chintu_echo, HIGH);  
+
+  distance = (duration*.0343)/2;  
+  Serial.print("Distance: ");  
+	Serial.println(distance);  
+  delay(1000); 
+  return distance
+}
+
+
+
+
+
+
+
+
+
+
+
+
